@@ -10,11 +10,28 @@ const WeatherLayout = () => {
   // Update season based on weather data
   useEffect(() => {
     if (weatherData) {
-      const temp = weatherData.main.temp;
-      if (temp > 25) setSeason('summer');
-      else if (temp > 15) setSeason('cloudy');
-      else if (temp > 5) setSeason('rainy');
-      else setSeason('snowy');
+      const weatherCondition = weatherData.weather[0].main.toLowerCase();
+      
+      // Map weather conditions to seasons
+      switch(weatherCondition) {
+        case 'clear':
+          setSeason('summer');
+          break;
+        case 'clouds':
+          setSeason('cloudy');
+          break;
+        case 'rain':
+        case 'drizzle':
+        case 'thunderstorm':
+          setSeason('rainy');
+          break;
+        case 'snow':
+          setSeason('snowy');
+          break;
+        default:
+          // Default to cloudy for other conditions
+          setSeason('cloudy');
+      }
     }
   }, [weatherData]);
 
