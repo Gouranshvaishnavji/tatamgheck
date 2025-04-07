@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import WeatherWidget from '../weatherwidget/WeatherWidget';
-import "./weatherlayout.css"
+import "./weatehrlayout.css"
 const WeatherLayout = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [season, setSeason] = useState('summer');
