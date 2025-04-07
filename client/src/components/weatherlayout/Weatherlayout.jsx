@@ -7,30 +7,27 @@ const WeatherLayout = () => {
   const [particles, setParticles] = useState([]);
 
 
-  // Update season based on weather data
+  // Update season based on weather conditions
   useEffect(() => {
     if (weatherData) {
       const weatherCondition = weatherData.weather[0].main.toLowerCase();
       
       // Map weather conditions to seasons
-      switch(weatherCondition) {
-        case 'clear':
-          setSeason('summer');
-          break;
-        case 'clouds':
-          setSeason('cloudy');
-          break;
-        case 'rain':
-        case 'drizzle':
-        case 'thunderstorm':
-          setSeason('rainy');
-          break;
-        case 'snow':
-          setSeason('snowy');
-          break;
-        default:
-          // Default to cloudy for other conditions
-          setSeason('cloudy');
+      if (weatherCondition.includes('clear') || weatherCondition.includes('sun')) {
+        setSeason('summer');
+      } else if (weatherCondition.includes('rain') || weatherCondition.includes('drizzle')) {
+        setSeason('rainy');
+      } else if (weatherCondition.includes('snow')) {
+        setSeason('snowy');
+      } else if (weatherCondition.includes('cloud') || weatherCondition.includes('mist') || 
+                 weatherCondition.includes('fog') || weatherCondition.includes('haze')) {
+        setSeason('cloudy');
+      } else if (weatherCondition.includes('thunderstorm')) {
+        // For thunderstorms, use rainy season with additional effects
+        setSeason('rainy');
+      } else {
+        // Default to cloudy for unknown conditions
+        setSeason('cloudy');
       }
     }
   }, [weatherData]);
