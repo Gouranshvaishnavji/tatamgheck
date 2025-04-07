@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import WeatherWidget from '../weatherwidget/WeatherWidget';
-import "./weatehrlayout.css"
+import "./weatherLayout.css"
 const WeatherLayout = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [season, setSeason] = useState('summer');
@@ -18,7 +18,7 @@ const WeatherLayout = () => {
     }
   }, [weatherData]);
 
-  
+
   // Generate particles based on season
   useEffect(() => {
     const generateParticles = () => {
