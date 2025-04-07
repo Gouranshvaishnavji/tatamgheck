@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./WeatherWidget.css";
 
-const WeatherWidget = () => {
+const WeatherWidget = ({ onWeatherUpdate }) => {
   const [location, setLocation] = useState("Delhi");
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -35,6 +35,9 @@ const WeatherWidget = () => {
       
       // Create weather effects
       createWeatherEffects(weatherCondition);
+      
+      // Pass weather data to parent component
+      onWeatherUpdate(data);
     } catch (err) {
       setError(err.message || "Something went wrong");
     } finally {
