@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import WeatherWidget from '../weatherwidget/WeatherWidget';
-import './WeatherLayout.css';
-
+import "./weatherlayout.css"
 const WeatherLayout = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [season, setSeason] = useState('summer');
   const [particles, setParticles] = useState([]);
 
-  
+
   // Update season based on weather data
   useEffect(() => {
     if (weatherData) {
