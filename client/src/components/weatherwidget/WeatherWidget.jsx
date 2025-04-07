@@ -158,6 +158,7 @@ const WeatherWidget = () => {
     <div className="weather-widget" data-weather={weatherEffect}>
       <h2>Weather Widget</h2>
       <form onSubmit={handleSubmit}>
+        
         <input
           type="text"
           value={location}

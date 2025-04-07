@@ -7,6 +7,7 @@ const WeatherLayout = () => {
   const [season, setSeason] = useState('summer');
   const [particles, setParticles] = useState([]);
 
+  
   // Update season based on weather data
   useEffect(() => {
     if (weatherData) {
