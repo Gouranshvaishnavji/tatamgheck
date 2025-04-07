@@ -18,6 +18,7 @@ const WeatherLayout = () => {
     }
   }, [weatherData]);
 
+  
   // Generate particles based on season
   useEffect(() => {
     const generateParticles = () => {
